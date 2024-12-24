@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an issue where the expected behavior of the `:hover` pseudo-class is not working as anticipated.
+
+```css
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+}
+
+.container:hover {
+  background-color: lightgreen; 
+}
+```
+
+The hover effect should change the background color to light green when the mouse is over the `.container` element, but it doesn't work in this case. This may happen if the element has another element on top that intercepts mouse events.
+
+```html
+<div class="container">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+</div>
+```
