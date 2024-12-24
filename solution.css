@@ -1,0 +1,28 @@
+The solution often involves adjusting z-index or pointer-events. The following CSS code fixes the issue by either ensuring the :hover element is on top (high z-index) or that the overlapping element allows events to pass through:
+
+```css
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+  position: relative; /* Ensure proper positioning */
+}
+
+.container:hover {
+  background-color: lightgreen;
+}
+
+.container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Solution 1: Adjust z-index to ensure container is on top */
+  z-index: -1; 
+  /* Solution 2: Allow events to pass through */
+  pointer-events: none;
+}
+```
+
+This ensures that the hover effect is correctly applied to the .container element.
